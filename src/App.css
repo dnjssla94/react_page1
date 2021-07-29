@@ -1,17 +1,8 @@
 .App {
   text-align: center;
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +26,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.app {
+  margin: 30px 10px 30px 20px;
+}
+
+.line {
+  margin-bottom: 0.6em;
+}
+.division {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.shortestIpt {
+  margin-left: 0.3em;
+  margin-right: 10px;
+  width: 2em;
+}
+.shorterIpt {
+  margin-left: 0.3em;
+  margin-right: 10px;
+  width: 4em;
+}
+.shortIpt {
+  margin-left: 0.3em;
+  margin-right: 10px;
+  width: 5em;
+}
+.longIpt {
+  margin-left: 0.3em;
+  width: 15em;
+}
+
+.infoSubmit {
+  width: 100%;
+  height: 3em;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.samePerson {
+  margin-left: 1em;
 }
