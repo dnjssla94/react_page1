@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import ProductInfo from '../components/productInfo';
 import PersonInfo from '../components/personInfo';
 import InformationVideo from '../components/informationVideo';
+import {Link  } from 'react-router-dom';
 
 class SelectInsurance extends Component {
   state = { // 작업 완료 후 contractor, theInsured는 객체를 app.jsx로 보낸다.
@@ -198,9 +199,9 @@ class SelectInsurance extends Component {
     this.setState({...this.state, theInsured :{...this.state.theInsured, residentNum2: residentNum2}});
     const isrAge = this.calIsrAgeAndIsrBirth(this.state.theInsured.residentNum1,residentNum2)[0]
     const isrBrith = this.calIsrAgeAndIsrBirth(this.state.theInsured.residentNum1,residentNum2)[1]
-    console.log(isrAge, isrBrith)
+    // console.log(isrAge, isrBrith)
     this.setState({...this.state, theInsured : {...this.state.theInsured,insuranceAge: isrAge, insuranceBirth: isrBrith}})
-    console.log('this.state.theInsured: ',this.state.theInsured);
+    // console.log('this.state.theInsured: ',this.state.theInsured);
   }
 
   copyPersonInfo = () => {
@@ -344,7 +345,20 @@ class SelectInsurance extends Component {
         ></InformationVideo>
 
         <div className='division'></div>
-        <button className='infoSubmit' type='submit' onClick={this.submitData}> 제출하기 </button>
+        {/* <button className='infoSubmit' type='submit' onClick={this.submitData}>
+          제출하기 
+        </button> */}
+        <Link to={{
+            pathname:'/contract',
+            state:{
+              contractor: this.state.contractor,
+              theInsured: this.state.theInsured 
+            }
+          }}>
+          <button className='infoSubmit' type='submit' onClick={this.submitData}>
+            제출하기 
+          </button>
+        </Link>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class ComboBox extends Component {
 
-    
+
     getData = (event) => {
       this.props.getComboBoxVal(event.target.value)
     }
