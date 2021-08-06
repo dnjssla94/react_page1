@@ -368,7 +368,7 @@ class SelectInsurance extends Component {
       <div className='app'>
         <div className='line'>
           <span className="cpnt-title">계약자</span>
-          <img className='logo-image' src='./lina_logo.png'></img>
+          <img className='logo-image' src='./lina_logo.png' alt='라이나생명 CI'></img>
         </div>
 
         <PersonInfo 
