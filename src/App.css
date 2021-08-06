@@ -57,7 +57,12 @@ select {
   padding: 2px 10px 1px 10px;
 }
 
-
+.logo-image {
+  height: 30px;
+  width: 120px;
+  float: right;
+  margin-right: 10px;
+}
 .line {
   margin-bottom: 0.6em;
 }
@@ -105,8 +110,8 @@ select {
   border: none;
   margin-left: 1em;
   padding: 6px 9px 6px 9px;
-  font-weight: bolder;
-  font-size: 15px;
+  font-weight: bold;
+  font-size: 14px;
 }
 .cpnt-title {
   /* padding: 5px 12px 5px 12px; */

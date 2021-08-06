@@ -1,11 +1,10 @@
 body {
   margin: 0;
-  font-family: "Malgun Gothic", serif;
+  font-family: "Montserrat", sans-serif;
   color: #2f383e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #75D4F0;
-  font-weight: bold;
   color: azure;
   font-size: 15px;
 }
