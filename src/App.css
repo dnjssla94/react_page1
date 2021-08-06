@@ -1,10 +1,9 @@
 .App {
   text-align: center;
-  padding: 5px;
   background-color: #75D4F0;
 }
 
-
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -14,7 +13,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -46,6 +45,10 @@ input {
 
 input:focus {
   border-color: var(--yellow);
+}
+
+span {
+  margin-right: 5px;
 }
 
 select {
