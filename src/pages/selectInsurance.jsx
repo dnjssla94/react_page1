@@ -161,10 +161,48 @@ class SelectInsurance extends Component {
     this.setState({...this.state, contractor :{...this.state.contractor, gender: gender}});
   }
   getContractorJob = (job) => {
-    this.setState({...this.state, contractor :{...this.state.contractor, job: job}});
+    switch(job){
+      case '운송업':
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 4}});
+        break;
+      case '건설업':
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 5}});
+        break;
+      case '서비스업':
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 1}});
+        break;
+      case '요식업':
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 2}});
+        break;
+      case '운동선수':
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 5}});
+        break;
+      default:
+        this.setState({...this.state, contractor :{...this.state.contractor, job: job, riskGrade: 1}});
+        break;
+    }
   }
-  getContractorDrivingKind = (kind) => {
-    this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: kind}});
+  getContractorDrivingKind = (carKind) => {
+    switch(carKind){
+      case '자가용승용차':
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'B'}});
+        break;
+      case '영업용승합차':
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      case '6종건설기계':
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      case '일반건설기계':
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'E'}});
+        break;
+      case '폭발물,인화물차량':
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      default:
+        this.setState({...this.state, contractor :{...this.state.contractor, drivingJob: carKind, injuryGrade: 'B'}});
+        break;
+    }
   }
   getContractorResidentNum1 = (residentNum1) => {
     this.setState({...this.state, contractor :{...this.state.contractor, residentNum1: residentNum1}});
@@ -196,12 +234,55 @@ class SelectInsurance extends Component {
     this.setState({...this.state, theInsured :{...this.state.theInsured, residentNum1: residentNum1}});
   }
   getTheInsuredResidentNum2 = (residentNum2) => {
-    this.setState({...this.state, theInsured :{...this.state.theInsured, residentNum2: residentNum2}});
     const isrAge = this.calIsrAgeAndIsrBirth(this.state.theInsured.residentNum1,residentNum2)[0]
     const isrBrith = this.calIsrAgeAndIsrBirth(this.state.theInsured.residentNum1,residentNum2)[1]
-    // console.log(isrAge, isrBrith)
-    this.setState({...this.state, theInsured : {...this.state.theInsured,insuranceAge: isrAge, insuranceBirth: isrBrith}})
-    // console.log('this.state.theInsured: ',this.state.theInsured);
+    this.setState({...this.state, theInsured :{...this.state.theInsured, residentNum2: residentNum2}}, () => {
+      this.setState({...this.state, theInsured : {...this.state.theInsured,insuranceAge: isrAge, insuranceBirth: isrBrith}})
+    });
+  }
+  getTheInsuredJob = (job) => {
+    switch(job){
+      case '운송업':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 4}});
+        break;
+      case '건설업':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 5}});
+        break;
+      case '서비스업':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 1}});
+        break;
+      case '요식업':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 2}});
+        break;
+      case '운동선수':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 5}});
+        break;
+      default:
+        this.setState({...this.state, theInsured :{...this.state.theInsured, job: job, riskGrade: 1}});
+        break;
+    }
+  }
+  getTheInsuredDrivingKind = (carKind) => {
+    switch(carKind){
+      case '자가용승용차':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'B'}});
+        break;
+      case '영업용승합차':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      case '6종건설기계':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      case '일반건설기계':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'E'}});
+        break;
+      case '폭발물,인화물차량':
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'D'}});
+        break;
+      default:
+        this.setState({...this.state, theInsured :{...this.state.theInsured, drivingJob: carKind, injuryGrade: 'B'}});
+        break;
+    }
   }
 
   copyPersonInfo = () => {
@@ -213,7 +294,9 @@ class SelectInsurance extends Component {
     const residentNum1 = this.state.contractor.residentNum1;
     const residentNum2 = this.state.contractor.residentNum2;
     const insuranceAge = this.state.contractor.insuranceAge;
-    const insuranceBirth = this.state.contractor.insuranceBirth
+    const insuranceBirth = this.state.contractor.insuranceBirth;
+    const riskGrade =this.state.contractor.riskGrade;
+    const injuryGrade =this.state.contractor.injuryGrade;
 
     this.setState({
       ...this.state,
@@ -227,7 +310,9 @@ class SelectInsurance extends Component {
         residentNum1 : residentNum1,
         residentNum2 : residentNum2,
         insuranceAge: insuranceAge,
-        insuranceBirth: insuranceBirth
+        insuranceBirth: insuranceBirth,
+        riskGrade: riskGrade,
+        injuryGrade: injuryGrade,
       },
       isNotSame : false
     })
@@ -282,7 +367,7 @@ class SelectInsurance extends Component {
     return (
       <div className='app'>
         <div className='line'>
-          <span>[계약자]</span>
+          <span className="cpnt-title">계약자</span>
         </div>
 
         <PersonInfo 
@@ -292,6 +377,8 @@ class SelectInsurance extends Component {
           drivingKindList={this.state.drivingKindList}
           isrAge={this.state.contractor.insuranceAge}
           isrBrith={this.state.contractor.insuranceBirth}
+          isRiskGrade={this.state.contractor.riskGrade}
+          isInjuryGrade={this.state.contractor.injuryGrade}
           getName={this.getContractorName}
           getRelation={this.getContractorRelation}
           getGender={this.getContractorGender}
@@ -303,7 +390,7 @@ class SelectInsurance extends Component {
 
         <div className='division'></div>
         <div className='line'>
-          <span>[피보험자]</span>
+          <span className="cpnt-title">피보험자</span>
           <button className='samePerson' onClick={this.copyPersonInfo}>계약자와 동일</button>
         </div>
         {this.state.isNotSame && <PersonInfo className='theInsured'
@@ -313,6 +400,8 @@ class SelectInsurance extends Component {
           drivingKindList={this.state.drivingKindList}
           isrAge={this.state.theInsured.insuranceAge}
           isrBrith={this.state.theInsured.insuranceBirth}
+          isRiskGrade={this.state.theInsured.riskGrade}
+          isInjuryGrade={this.state.theInsured.injuryGrade}
           getName={this.getTheInsuredName}
           getRelation={this.getTheInsuredRelation}
           getGender={this.getTheInsuredGender}
@@ -324,7 +413,7 @@ class SelectInsurance extends Component {
 
         <div className='division'></div>
         <div className='line'>
-          <span>[상품정보]</span>
+          <span className="cpnt-title">상품정보</span>
         </div>
 
         <ProductInfo
@@ -336,7 +425,7 @@ class SelectInsurance extends Component {
 
         <div className='division'></div>
         <div className='line'>
-          <span>[상품 소개 영상]</span>
+          <span className="cpnt-title">상품 소개 영상</span>
         </div>
 
         <InformationVideo

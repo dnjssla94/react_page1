@@ -50,14 +50,14 @@ class PersonInfo extends Component {
                 <div className='line'>
                     <span>주민등록번호 </span> 
                     <input className='shortIpt' type="text" onChange={this.getResidentNum1}/>
-                    <span> - </span>
+                    <p className='dash'> ㅡ </p>
                     <input className='shortIpt' type="text" onChange={this.getResidentNum2}/>
                 </div>
                 <div className='line'>
                     <span>보험 연령 </span>
-                    <input className='shortestIpt' type="text" value={this.props.isrAge}/>
+                    <input className='shortestIpt' type="text" defaultValue={this.props.isrAge} />
                     <span>상령 일자 </span>
-                    <input className='shortIpt' type="text" value={this.props.isrBrith}/>
+                    <input className='shortIpt' type="text" defaultValue={this.props.isrBrith} />
                 </div>
                 <div className='line'>
                     <span>직업 </span>
@@ -75,9 +75,9 @@ class PersonInfo extends Component {
                 </div>
                 <div className='line'>
                     <span>위험 등급 </span>
-                    <input className='shorterIpt' type="text" onChange={this.getData}/>
-                    <span>장애 등급 </span>
-                    <input className='shorterIpt' type="text" onChange={this.getData}/>
+                    <input className='shorterIpt' type="text" defaultValue={this.props.isRiskGrade} />
+                    <span>상해 등급 </span>
+                    <input className='shorterIpt' type="text" defaultValue={this.props.isInjuryGrade} />
                 </div>
             </div>
         );

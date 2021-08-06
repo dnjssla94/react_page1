@@ -12,14 +12,14 @@ class ComboBox extends Component {
   render() {
       return (
         <>
-        <select name="score" className="select-box" onChange={this.getData} id="select-id">
-          <option></option>
-          {
-            this.props.dataList && this.props.dataList.map(data => (
-              <option key={data.id} value={data.val}>{data.val}</option>
-            ))
-          }
-        </select>
+          <select name="score" className="select-box" onChange={this.getData} id="select-id">
+            <option></option>
+            {
+              this.props.dataList && this.props.dataList.map(data => (
+                <option key={data.id} value={data.val}>{data.val}</option>
+              ))
+            }
+          </select>
         </>
       );
   }
