@@ -1,5 +1,4 @@
-.App {
-  text-align: center;
+.app {
   background-color: #75D4F0;
 }
 
@@ -131,4 +130,9 @@ button {
   padding-top: 17px;
   border-radius: 10px;
   text-align: center;
+}
+
+.info {
+  font-weight: bold;
+  color: yellow;
 }
