@@ -57,6 +57,7 @@ select {
   border: none;
   border-radius: 10px; 
   padding: 2px 10px 1px 10px;
+  background-color: rgb(241, 241, 158);
 }
 
 .logo-image {
